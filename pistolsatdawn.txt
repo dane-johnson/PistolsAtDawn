@@ -3,22 +3,4 @@
   "base"        "base"
   "title"       "Pistols at Dawn"
   "menusystem"  "1"
-  "settings"
-  {
-    1
-    {
-      "name"    "pd_capt_bullets"
-      "text"    "Number of Bullets for Captains"
-      "help"    "The number of bullets available to captains"
-      "type"    "Numeric"
-      "default" "3"
-    }
-    2
-    {
-      "name"    "pd_posse_bullets"
-      "text"    "Number of Bullets for Posse Memebers"
-      "help"    "The number of bullets for each memeber of the posse"
-      "default" "3"
-    }
-  }
 }

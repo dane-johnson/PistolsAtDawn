@@ -36,8 +36,24 @@ TEAM_RED  = 1
 TEAM_BLUE = 2
 TEAM_SPEC = 0
 
-function 
+function GM:CreateTeams()
+  team.SetUp(TEAM_RED, "Red", COLOR_RED)
+  team.SetUp(TEAM_BLUE, "Blue", COLOR_BLUE)
+end
+
+-- All teams use the same model
+local pd_playermodels = {
+   Model("models/player/phoenix.mdl"),
+   Model("models/player/arctic.mdl"),
+   Model("models/player/guerilla.mdl"),
+   Model("models/player/leet.mdl")
+};
+
+function GetRandomPlayerModel()
+  return table.Random(pd_playermodels)
+end
 
 function GM:Initialize()
+  print('Pistols at Dawn initializing...')
   --Do stuff
 end
