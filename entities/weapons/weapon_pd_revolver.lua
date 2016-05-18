@@ -14,7 +14,7 @@ SWEP.SequenceIdle = "idle01"
 SWEP.SequenceHolster = "holster"
 
 SWEP.Primary.ClipSize = 1
-SWEP.Primary.DefaultClip = 0
+SWEP.Primary.DefaultClip = 1
 SWEP.Primary.Automatic = false
 SWEP.Primary.Sound = "Weapon_357.Single"
 SWEP.Primary.Sequence = "fire"

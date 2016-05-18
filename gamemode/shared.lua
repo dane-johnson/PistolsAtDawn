@@ -9,13 +9,9 @@ ROUND_WAIT = 0
 ROUND_ACTIVE = 1
 ROUND_POST = 2
 
---Team state consts
-STATE_HOLSTERED = 0
-STATE_FULL_CONTROL = 1
-
---Role consts
-ROLE_CAPTAIN = 0
-ROLE_POSSE = 1
+--load player classes
+include('player_class/player_posse.lua')
+include('player_class/player_prisoner.lua')
 
 --Colors
 COLOR_WHITE  = Color(255, 255, 255, 255)
@@ -36,6 +32,12 @@ TEAM_RED  = 1
 TEAM_BLUE = 2
 TEAM_SPEC = 0
 
+--things to draw
+DRAW_NAME  = 1
+DRAW_CLASS = 2
+
+HUDMask = bit.bor(DRAW_NAME, DRAW_CLASS)
+
 function GM:CreateTeams()
   team.SetUp(TEAM_RED, "Red", COLOR_RED)
   team.SetUp(TEAM_BLUE, "Blue", COLOR_BLUE)
@@ -51,6 +53,18 @@ local pd_playermodels = {
 
 function GetRandomPlayerModel()
   return table.Random(pd_playermodels)
+end
+
+function GM:PlayerShouldTakeDamage(victim, attacker)
+
+  if victim.cellPos ~= victim:GetPos() then victim.isInCell = False end
+  if player_manager.GetPlayerClass(victim) == 'player_prisoner' and victim.IsInCell then
+    return false
+  elseif attacker:IsPlayer() and victim:Team() == attacker:Team() then
+    return false
+  else
+    return true
+  end
 end
 
 function GM:Initialize()
