@@ -15,4 +15,5 @@ function PLAYER:Loadout()
   
 end
 
+
 player_manager.RegisterClass('player_posse', PLAYER, 'player_default')

@@ -10,13 +10,6 @@ PLAYER = {}
 function PLAYER:Loadout()
 
   self.Player:RemoveAllAmmo()
-  self.Player.isInCell = true
-  
-end
-
-function PLAYER:Spawn()
-
-  self.Player.cellPos = nil
   
 end
 

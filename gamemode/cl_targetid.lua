@@ -33,6 +33,7 @@ function GM:HUDDrawTargetID()
     
     if band(HUDMask, DRAW_NAME) > 0 then insert(text, ent:Nick()) end
     if band(HUDMask, DRAW_CLASS) > 0 then insert(text, player_manager.GetPlayerClass(ent)) end
+    if band(HUDMask, DRAW_IS_SAVIOR) > 0 then insert(text, tostring(ent:IsSavior())) end
     
     local x = ScrW() / 2.0
     local y = ScrH() / 2.0

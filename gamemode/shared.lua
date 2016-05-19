@@ -35,8 +35,9 @@ TEAM_SPEC = 0
 --things to draw
 DRAW_NAME  = 1
 DRAW_CLASS = 2
+DRAW_IS_SAVIOR = 4
 
-HUDMask = bit.bor(DRAW_NAME, DRAW_CLASS)
+HUDMask = bit.bor(DRAW_NAME, DRAW_CLASS, DRAW_IS_SAVIOR)
 
 function GM:CreateTeams()
   team.SetUp(TEAM_RED, "Red", COLOR_RED)
@@ -67,7 +68,7 @@ function GM:PlayerShouldTakeDamage(victim, attacker)
   end
 end
 
+
 function GM:Initialize()
   print('Pistols at Dawn initializing...')
-  --Do stuff
 end
