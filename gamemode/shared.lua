@@ -4,10 +4,7 @@ GM.Email = 'dane_johnson@ymail.com'
 GM.Website = 'N/A'
 GM.Version = '2016-05-16'
 
---Round status consts
-ROUND_WAIT = 0
-ROUND_ACTIVE = 1
-ROUND_POST = 2
+local pairs = pairs
 
 --load player classes
 include('player_class/player_posse.lua')
@@ -35,9 +32,12 @@ TEAM_SPEC = 0
 --things to draw
 DRAW_NAME  = 1
 DRAW_CLASS = 2
-DRAW_IS_SAVIOR = 4
+DRAW_IS_PRISONER = 4
+DRAW_IS_SAVIOR = 8
+DRAW_IS_BEING_SAVED = 16
+DRAW_SAVIOR = 32
 
-HUDMask = bit.bor(DRAW_NAME, DRAW_CLASS, DRAW_IS_SAVIOR)
+HUDMask = bit.bor(DRAW_NAME, DRAW_CLASS, DRAW_IS_PRISONER, DRAW_IS_SAVIOR, DRAW_IS_BEING_SAVED, DRAW_SAVIOR)
 
 function GM:CreateTeams()
   team.SetUp(TEAM_RED, "Red", COLOR_RED)
@@ -45,15 +45,26 @@ function GM:CreateTeams()
 end
 
 -- All teams use the same model
-local pd_playermodels = {
+local pd_posse_playermodels = {
    Model("models/player/phoenix.mdl"),
    Model("models/player/arctic.mdl"),
    Model("models/player/guerilla.mdl"),
    Model("models/player/leet.mdl")
-};
+}
 
-function GetRandomPlayerModel()
-  return table.Random(pd_playermodels)
+local pd_prisoner_playermodels = {
+  Model("models/player/hostage/hostage_01.mdl"),
+  Model("models/player/hostage/hostage_02.mdl"),
+  Model("models/player/hostage/hostage_03.mdl"),
+  Model("models/player/hostage/hostage_04.mdl"),
+}
+
+function GetRandomPlayerModel( ply )
+  if ply:IsPrisoner() then 
+    return table.Random(pd_prisoner_playermodels)
+  else 
+    return table.Random(pd_posse_playermodels) 
+  end
 end
 
 function GM:PlayerShouldTakeDamage(victim, attacker)
@@ -65,6 +76,20 @@ function GM:PlayerShouldTakeDamage(victim, attacker)
     return false
   else
     return true
+  end
+end
+
+function GM:SetSaviors()
+  for _, t in pairs( {TEAM_RED, TEAM_BLUE} ) do 
+    for _, prisoner in pairs( team.GetPlayers( t ) ) do 
+      if prisoner:IsPrisoner() and (not prisoner:IsBeingSaved()) then
+        for _, s in pairs( team.GetPlayers( t ) ) do
+          if (not (s == prisoner)) and AreInSavingRange(s, prisoner) then
+            prisoner:SetSavior( s )
+          end
+        end
+      end
+    end
   end
 end
 

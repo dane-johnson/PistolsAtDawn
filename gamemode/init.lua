@@ -1,13 +1,21 @@
 --     Pistols at Dawn         --
 --Coded with <3 by Dane Johnson--
 
+local SAVING_RANGE = 400000000
+
 AddCSLuaFile('cl_init.lua')
 AddCSLuaFile('shared.lua')
 AddCSLuaFile('cl_targetid.lua')
 AddCSLuaFile('player_ext_shd.lua')
+AddCSLuaFile('cl_savior.lua')
 
 include('shared.lua')
+include('player_ext.lua')
 include('player_ext_shd.lua')
+
+--Pool some network strings
+util.AddNetworkString('PD_UpdateSavior')
+util.AddNetworkString('PD_ClearSavior')
 
 function GM:PlayerInitialSpawn( ply )
   local bestTeam = team.BestAutoJoinTeam()
@@ -20,6 +28,12 @@ end
 function GM:PostPlayerDeath( ply )
   player_manager.SetPlayerClass( ply, 'player_prisoner' )
   CheckForRoundOver( ply:Team() )
+end
+
+function ClearSavior( ply )
+  ply.savior = nil
+  net.Start("PD_ClearSavior")
+  net.Send( ply )
 end
 
 function CheckForRoundOver( num )
@@ -36,7 +50,7 @@ function CheckForRoundOver( num )
 end
 
 function GM:PlayerSetModel(ply)
-  ply:SetModel(GetRandomPlayerModel())
+  ply:SetModel(GetRandomPlayerModel(ply))
 end
 
 function StartRound()
@@ -44,8 +58,21 @@ function StartRound()
   local plys = player.GetAll()
   
   for _, v in pairs(plys) do 
+    ClearSavior( v )
     player_manager.SetPlayerClass( v, 'player_posse' )
     v:Spawn()
   end
 end
+
+function AreInSavingRange(p1, p2)
+  return p1:GetPos():Distance(p2:GetPos()) <= SAVING_RANGE
+end
+
+function PrintSaviors()
+  for _, p in pairs(player.GetAll()) do print (p.savior); p:SetSavior(p.savior) end
+end
+
+concommand.Add('saviors', function() PrintSaviors() end)
+
+timer.Create( 'SaviorSet', 1, 0, function() hook.Call('SetSaviors', GAMEMODE) end)
 

@@ -31,9 +31,13 @@ function GM:HUDDrawTargetID()
   if ent:IsPlayer() then 
     color = team.GetColor(ent:Team())
     
-    if band(HUDMask, DRAW_NAME) > 0 then insert(text, ent:Nick()) end
-    if band(HUDMask, DRAW_CLASS) > 0 then insert(text, player_manager.GetPlayerClass(ent)) end
-    if band(HUDMask, DRAW_IS_SAVIOR) > 0 then insert(text, tostring(ent:IsSavior())) end
+    if band(HUDMask, DRAW_NAME) > 0 then insert( text, ent:Nick() ) end
+    if band(HUDMask, DRAW_CLASS) > 0 then insert( text, player_manager.GetPlayerClass(ent) ) end
+    if band(HUDMask, DRAW_IS_PRISONER) > 0 then insert( text, 'IsPrisoner: ' .. tostring(ent:IsPrisoner())) end
+    if band(HUDMask, DRAW_IS_SAVIOR) > 0 then insert( text, 'IsSavior: ' .. tostring(ent:IsSavior())) end
+    if band(HUDMask, DRAW_IS_BEING_SAVED) > 0 then insert( text, 'IsBeingSaved: ' .. tostring( ent:IsBeingSaved())) end
+    if band(HUDMask, DRAW_SAVIOR) > 0 then insert( text, 'Savior: ' .. (ent.savior or 'nada')) end
+    
     
     local x = ScrW() / 2.0
     local y = ScrH() / 2.0
