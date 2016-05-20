@@ -13,6 +13,7 @@ SWEP.SequenceDraw = "draw"
 SWEP.SequenceIdle = "idle01"
 SWEP.SequenceHolster = "holster"
 
+
 SWEP.Primary.ClipSize = 1
 SWEP.Primary.DefaultClip = 1
 SWEP.Primary.Automatic = false

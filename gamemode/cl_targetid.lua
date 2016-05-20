@@ -36,7 +36,7 @@ function GM:HUDDrawTargetID()
     if band(HUDMask, DRAW_IS_PRISONER) > 0 then insert( text, 'IsPrisoner: ' .. tostring(ent:IsPrisoner())) end
     if band(HUDMask, DRAW_IS_SAVIOR) > 0 then insert( text, 'IsSavior: ' .. tostring(ent:IsSavior())) end
     if band(HUDMask, DRAW_IS_BEING_SAVED) > 0 then insert( text, 'IsBeingSaved: ' .. tostring( ent:IsBeingSaved())) end
-    if band(HUDMask, DRAW_SAVIOR) > 0 then insert( text, 'Savior: ' .. (ent.savior or 'nada')) end
+    if band(HUDMask, DRAW_SAVIOR) > 0 then insert( text, 'Savior: ' .. (ent:GetSavior() or 'nada')) end
     
     
     local x = ScrW() / 2.0

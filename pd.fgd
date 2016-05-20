@@ -1,0 +1,9 @@
+// ---------------- //
+// Game data for PD //
+// ---------------- //
+
+@include "base.fgd"
+
+//Spawn points
+@PointClass base(PlayerClass, Angles) studio("models/editor/playerstart.mdl") = info_player_red : "spawn zone for red players" []
+@PointClass base(PlayerClass, Angles) studio("models/editor/playerstart.mdl") = info_player_blue : "spawn zone for blue players" []

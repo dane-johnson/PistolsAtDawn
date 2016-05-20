@@ -1,7 +1,7 @@
 --     Pistols at Dawn         --
 --Coded with <3 by Dane Johnson--
 
-local SAVING_RANGE = 400000000
+local SAVING_RANGE = 350
 
 AddCSLuaFile('cl_init.lua')
 AddCSLuaFile('shared.lua')
@@ -33,7 +33,8 @@ end
 function ClearSavior( ply )
   ply.savior = nil
   net.Start("PD_ClearSavior")
-  net.Send( ply )
+  net.WriteString( ply:SteamID() )
+  net.Broadcast()
 end
 
 function CheckForRoundOver( num )
@@ -58,8 +59,8 @@ function StartRound()
   local plys = player.GetAll()
   
   for _, v in pairs(plys) do 
-    ClearSavior( v )
     player_manager.SetPlayerClass( v, 'player_posse' )
+    ClearSavior( v )
     v:Spawn()
   end
 end
@@ -67,12 +68,6 @@ end
 function AreInSavingRange(p1, p2)
   return p1:GetPos():Distance(p2:GetPos()) <= SAVING_RANGE
 end
-
-function PrintSaviors()
-  for _, p in pairs(player.GetAll()) do print (p.savior); p:SetSavior(p.savior) end
-end
-
-concommand.Add('saviors', function() PrintSaviors() end)
 
 timer.Create( 'SaviorSet', 1, 0, function() hook.Call('SetSaviors', GAMEMODE) end)
 

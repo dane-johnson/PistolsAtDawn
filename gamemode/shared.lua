@@ -82,13 +82,15 @@ end
 function GM:SetSaviors()
   for _, t in pairs( {TEAM_RED, TEAM_BLUE} ) do 
     for _, prisoner in pairs( team.GetPlayers( t ) ) do 
-      if prisoner:IsPrisoner() and (not prisoner:IsBeingSaved()) then
-        for _, s in pairs( team.GetPlayers( t ) ) do
-          if (not (s == prisoner)) and AreInSavingRange(s, prisoner) then
-            prisoner:SetSavior( s )
+      if prisoner:IsPrisoner() then
+        if not prisoner:IsBeingSaved() then
+          for _, s in pairs( team.GetPlayers( t ) ) do
+            if (not (s == prisoner)) and AreInSavingRange(s, prisoner) then
+              prisoner:SetSavior( s )
+            end
           end
-        end
-      end
+        elseif not AreInSavingRange(prisoner, prisoner.savior) then ClearSavior(prisoner) end
+      else ClearSavior(prisoner) end
     end
   end
 end
