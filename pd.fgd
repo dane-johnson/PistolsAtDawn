@@ -7,3 +7,15 @@
 //Spawn points
 @PointClass base(PlayerClass, Angles) studio("models/editor/playerstart.mdl") = info_player_red : "spawn zone for red players" []
 @PointClass base(PlayerClass, Angles) studio("models/editor/playerstart.mdl") = info_player_blue : "spawn zone for blue players" []
+@PointClass base(PlayerClass, Angles) studio("models/editor/playerstart.mdl") = info_prisoner_red : "spawn zone for red prisoners" []
+@PointClass base(PlayerClass, Angles) studio("models/editor/playerstart.mdl") = info_prisoner_blue : "spawn zone for blue prisoners" []
+
+//Team Zones
+@SolidClass = trigger_team : "the team zone"
+[
+  team(choices) : "Team this zone belongs to." : "Red" : =
+  [
+    "red" : "Red"
+    "blue" : "Blue"
+  ]
+]

@@ -12,6 +12,7 @@ function PLAYER:Loadout()
   self.Player:RemoveAllAmmo()
   
   self.Player:Give('weapon_pd_revolver')
+  self.Player:SetIsSavior( false )
   
 end
 

@@ -12,10 +12,12 @@ AddCSLuaFile('cl_savior.lua')
 include('shared.lua')
 include('player_ext.lua')
 include('player_ext_shd.lua')
+include('sv_spawn.lua')
 
 --Pool some network strings
 util.AddNetworkString('PD_UpdateSavior')
 util.AddNetworkString('PD_ClearSavior')
+util.AddNetworkString('PD_SetIsSavior')
 
 function GM:PlayerInitialSpawn( ply )
   local bestTeam = team.BestAutoJoinTeam()
@@ -23,6 +25,7 @@ function GM:PlayerInitialSpawn( ply )
   ply:SetTeam( bestTeam )
   ply:ChatPrint( 'Hello ' .. ply:GetName() .. '. You are on team ' .. team.GetName( bestTeam ) )
   player_manager.SetPlayerClass(ply, 'player_posse')
+  ply:Spawn()
 end
 
 function GM:PostPlayerDeath( ply )
@@ -54,8 +57,15 @@ function GM:PlayerSetModel(ply)
   ply:SetModel(GetRandomPlayerModel(ply))
 end
 
+--Entities not to clean up
+NOCLEAN = {
+  'info_player_red',
+  'info_player_blue',
+  'info_prisoner_red',
+  'info_prisoner_blue',
+}
+
 function StartRound()
-  game.CleanUpMap()
   local plys = player.GetAll()
   
   for _, v in pairs(plys) do 
@@ -63,6 +73,7 @@ function StartRound()
     ClearSavior( v )
     v:Spawn()
   end
+  game.CleanUpMap(false, NOCLEAN)
 end
 
 function AreInSavingRange(p1, p2)

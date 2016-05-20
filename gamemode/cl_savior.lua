@@ -13,3 +13,11 @@ function ClearSavior()
   ply.savior = nil
 end
 net.Receive("PD_ClearSavior", ClearSavior)
+
+function SetIsSavior()
+  local ply = player.GetBySteamID( net.ReadString() )
+  local truth = net.ReadBool()
+  
+  ply.isSavior = truth
+end
+net.Receive("PD_SetIsSavior", SetIsSavior)

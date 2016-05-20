@@ -6,7 +6,7 @@ end
 
 -- Test if a player can rescue
 function meta:IsSavior()
-  return player_manager.GetPlayerClass( self ) == 'player_posse'
+  return self.isSavior
 end
 
 -- Test if a player is being saved

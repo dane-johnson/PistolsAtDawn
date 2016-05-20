@@ -10,6 +10,7 @@ PLAYER = {}
 function PLAYER:Loadout()
 
   self.Player:RemoveAllAmmo()
+  self.Player:SetIsSavior( false )
   
 end
 
