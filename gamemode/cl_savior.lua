@@ -1,23 +1,44 @@
 --For the client to get updates about saviors
 
 function UpdateSavior()
-  local ply = player.GetBySteamID( net.ReadString() )
-  local savior = player.GetBySteamID( net.ReadString() )
-  
-  ply.savior = savior
+  local ply
+  local savior
+  if DEBUG then
+    ply = ents.FindByName( net.ReadString() )[1]
+    savior = ents.FindByName( net.ReadString() )[1]
+  else
+    ply = player.GetBySteamID( net.ReadString() )
+    savior = player.GetBySteamID( net.ReadString() )
+  end
+  if ply and savior then
+    ply.savior = savior
+  end
 end
 net.Receive("PD_UpdateSavior", UpdateSavior)
 
 function ClearSavior()
-  local ply = player.GetBySteamID( net.ReadString() )
-  ply.savior = nil
+  local ply
+  if DEBUG then 
+    ply = ents.FindByName( net.ReadString() )[1]
+  else
+    ply = player.GetBySteamID( net.ReadString() )
+  end
+  if ply then
+    ply.savior = nil
+  end
 end
 net.Receive("PD_ClearSavior", ClearSavior)
 
 function SetIsSavior()
-  local ply = player.GetBySteamID( net.ReadString() )
+  local ply
+  if DEBUG then
+    ply = ents.FindByName( net.ReadString() )[1]
+  else
+    ply = player.GetBySteamID( net.ReadString() )
+  end
   local truth = net.ReadBool()
-  
-  ply.isSavior = truth
+  if ply then
+    ply.isSavior = truth
+  end
 end
 net.Receive("PD_SetIsSavior", SetIsSavior)

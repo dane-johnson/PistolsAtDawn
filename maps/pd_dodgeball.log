@@ -594,3 +594,251 @@ Level flags = 0
 Total triangle count: 180
 Writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.bsp
 0 seconds elapsed
+
+
+
+materialPath: C:\Program Files (x86)\Steam\SteamApps\common\GarrysMod\garrysmod\materials
+Loading C:\Program Files (x86)\Steam\SteamApps\common\GarrysMod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.vmf
+Could not locate 'GameData' key in c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\gameinfo.txt
+fixing up env_cubemap materials on brush sides...
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Processing areas...done (0)
+Building Faces...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (0)
+writing C:\Program Files (x86)\Steam\SteamApps\common\GarrysMod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.prt...Building visibility clusters...
+done (0)
+Creating default LDR cubemaps for env_cubemap using skybox materials:
+   skybox/sky_day01_01*.vmt
+ ! Run buildcubemaps in the engine to get the correct cube maps.
+Creating default HDR cubemaps for env_cubemap using skybox materials:
+   skybox/sky_day01_01*.vmt
+ ! Run buildcubemaps in the engine to get the correct cube maps.
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Displacement Alpha : 0...1...2...3...4...5...6...7...8...9...10
+Building Physics collision data...
+done (0) (3396 bytes)
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 13 texinfos to 6
+Reduced 2 texdatas to 2 (46 bytes to 46)
+Writing C:\Program Files (x86)\Steam\SteamApps\common\GarrysMod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.bsp
+0 seconds elapsed
+
+
+
+4 threads
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.bsp
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.prt
+   8 portalclusters
+  10 numportals
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Optimized: 0 visible clusters (0.00%)
+Total clusters visible: 64
+Average clusters visible: 8
+Building PAS...
+Average clusters audible: 8
+visdatasize:84  compressed from 128
+writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.bsp
+0 seconds elapsed
+
+
+
+[Reading texlights from 'lights.rad']
+[45 texlights parsed from 'lights.rad']
+
+Loading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.bsp
+98 faces
+128682 square feet [18530304.00 square inches]
+0 Displacements
+0 Square Feet [0.00 Square Inches]
+98 patches before subdivision
+9750 patches after subdivision
+0 direct lights
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10transfers 1357671, max 374
+transfer lists:  10.4 megs
+0...1...2...3...4...5...6...7...8...9...10	Bounce #1 added RGB(0, 0, 0)
+Build Patch/Sample Hash Table(s).....Done<0.0023 sec>
+0...1...2...3...4...5...6...7...8...9...10FinalLightFace Done
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+0...1...2...3...4...5...6...7...8...9...10Writing leaf ambient...done
+Ready to Finish
+
+Object names       Objects/Maxobjs  Memory / Maxmem  Fullness 
+------------       ---------------  ---------------  -------- 
+models                   3/1024          144/49152    ( 0.3%) 
+brushes                  8/8192           96/98304    ( 0.1%) 
+brushsides              48/65536         384/524288   ( 0.1%) 
+planes                  60/65536        1200/1310720  ( 0.1%) 
+vertexes               133/65536        1596/786432   ( 0.2%) 
+nodes                   57/65536        1824/2097152  ( 0.1%) 
+texinfos                 6/12288         432/884736   ( 0.0%) 
+texdata                  2/2048           64/65536    ( 0.1%) 
+dispinfos                0/0               0/0        ( 0.0%) 
+disp_verts               0/0               0/0        ( 0.0%) 
+disp_tris                0/0               0/0        ( 0.0%) 
+disp_lmsamples           0/0               0/0        ( 0.0%) 
+faces                   98/65536        5488/3670016  ( 0.1%) 
+hdr faces                0/65536           0/3670016  ( 0.0%) 
+origfaces               18/65536        1008/3670016  ( 0.0%) 
+leaves                  61/65536        1952/2097152  ( 0.1%) 
+leaffaces               98/65536         196/131072   ( 0.1%) 
+leafbrushes             30/65536          60/131072   ( 0.0%) 
+areas                    2/256            16/2048     ( 0.8%) 
+surfedges              472/512000       1888/2048000  ( 0.1%) 
+edges                  249/256000        996/1024000  ( 0.1%) 
+LDR worldlights          0/8192            0/720896   ( 0.0%) 
+HDR worldlights          0/8192            0/720896   ( 0.0%) 
+leafwaterdata            0/32768           0/393216   ( 0.0%) 
+waterstrips              2/32768          20/327680   ( 0.0%) 
+waterverts               0/65536           0/786432   ( 0.0%) 
+waterindices            24/65536          48/131072   ( 0.0%) 
+cubemapsamples           0/1024            0/16384    ( 0.0%) 
+overlays                 0/512             0/180224   ( 0.0%) 
+LDR lightdata         [variable]      720264/0        ( 0.0%) 
+HDR lightdata         [variable]           0/0        ( 0.0%) 
+visdata               [variable]          84/16777216 ( 0.0%) 
+entdata               [variable]        3663/393216   ( 0.9%) 
+LDR ambient table       61/65536         244/262144   ( 0.1%) 
+HDR ambient table       61/65536         244/262144   ( 0.1%) 
+LDR leaf ambient        20/65536         560/1835008  ( 0.0%) 
+HDR leaf ambient        61/65536        1708/1835008  ( 0.1%) 
+occluders                0/0               0/0        ( 0.0%) 
+occluder polygons        0/0               0/0        ( 0.0%) 
+occluder vert ind        0/0               0/0        ( 0.0%) 
+detail props          [variable]           1/12       ( 8.3%) 
+static props          [variable]           1/12       ( 8.3%) 
+pakfile               [variable]      105679/0        ( 0.0%) 
+physics               [variable]        3396/4194304  ( 0.1%) 
+physics terrain       [variable]           2/1048576  ( 0.0%) 
+
+Level flags = 0
+
+Total triangle count: 204
+Writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.bsp
+0 seconds elapsed
+
+
+
+materialPath: C:\Program Files (x86)\Steam\SteamApps\common\GarrysMod\garrysmod\materials
+Loading C:\Program Files (x86)\Steam\SteamApps\common\GarrysMod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.vmf
+Could not locate 'GameData' key in c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\gameinfo.txt
+fixing up env_cubemap materials on brush sides...
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Processing areas...done (0)
+Building Faces...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (0)
+writing C:\Program Files (x86)\Steam\SteamApps\common\GarrysMod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.prt...Building visibility clusters...
+done (0)
+Creating default LDR cubemaps for env_cubemap using skybox materials:
+   skybox/sky_day01_01*.vmt
+ ! Run buildcubemaps in the engine to get the correct cube maps.
+Creating default HDR cubemaps for env_cubemap using skybox materials:
+   skybox/sky_day01_01*.vmt
+ ! Run buildcubemaps in the engine to get the correct cube maps.
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Displacement Alpha : 0...1...2...3...4...5...6...7...8...9...10
+Building Physics collision data...
+done (0) (8414 bytes)
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 27 texinfos to 10
+Reduced 4 texdatas to 4 (99 bytes to 99)
+Writing C:\Program Files (x86)\Steam\SteamApps\common\GarrysMod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.bsp
+0 seconds elapsed
+
+
+
+4 threads
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.bsp
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.prt
+   8 portalclusters
+  10 numportals
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Optimized: 0 visible clusters (0.00%)
+Total clusters visible: 64
+Average clusters visible: 8
+Building PAS...
+Average clusters audible: 8
+visdatasize:84  compressed from 128
+writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.bsp
+0 seconds elapsed
+
+
+
+[Reading texlights from 'lights.rad']
+[45 texlights parsed from 'lights.rad']
+
+Loading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.bsp
+74 faces
+128682 square feet [18530304.00 square inches]
+0 Displacements
+0 Square Feet [0.00 Square Inches]
+74 patches before subdivision
+5502 patches after subdivision
+0 direct lights
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10transfers 482465, max 293
+transfer lists:   3.7 megs
+0...1...2...3...4...5...6...7...8...9...10	Bounce #1 added RGB(0, 0, 0)
+Build Patch/Sample Hash Table(s).....Done<0.0007 sec>
+0...1...2...3...4...5...6...7...8...9...10FinalLightFace Done
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+0...1...2...3...4...5...6...7...8...9...10Writing leaf ambient...done
+Ready to Finish
+
+Object names       Objects/Maxobjs  Memory / Maxmem  Fullness 
+------------       ---------------  ---------------  -------- 
+models                   3/1024          144/49152    ( 0.3%) 
+brushes                 24/8192          288/98304    ( 0.3%) 
+brushsides             144/65536        1152/524288   ( 0.2%) 
+planes                  60/65536        1200/1310720  ( 0.1%) 
+vertexes               145/65536        1740/786432   ( 0.2%) 
+nodes                   57/65536        1824/2097152  ( 0.1%) 
+texinfos                10/12288         720/884736   ( 0.1%) 
+texdata                  4/2048          128/65536    ( 0.2%) 
+dispinfos                0/0               0/0        ( 0.0%) 
+disp_verts               0/0               0/0        ( 0.0%) 
+disp_tris                0/0               0/0        ( 0.0%) 
+disp_lmsamples           0/0               0/0        ( 0.0%) 
+faces                   74/65536        4144/3670016  ( 0.1%) 
+hdr faces                0/65536           0/3670016  ( 0.0%) 
+origfaces               34/65536        1904/3670016  ( 0.1%) 
+leaves                  61/65536        1952/2097152  ( 0.1%) 
+leaffaces               74/65536         148/131072   ( 0.1%) 
+leafbrushes             58/65536         116/131072   ( 0.1%) 
+areas                    2/256            16/2048     ( 0.8%) 
+surfedges              448/512000       1792/2048000  ( 0.1%) 
+edges                  253/256000       1012/1024000  ( 0.1%) 
+LDR worldlights          0/8192            0/720896   ( 0.0%) 
+HDR worldlights          0/8192            0/720896   ( 0.0%) 
+leafwaterdata            0/32768           0/393216   ( 0.0%) 
+waterstrips              2/32768          20/327680   ( 0.0%) 
+waterverts               0/65536           0/786432   ( 0.0%) 
+waterindices            24/65536          48/131072   ( 0.0%) 
+cubemapsamples           0/1024            0/16384    ( 0.0%) 
+overlays                 0/512             0/180224   ( 0.0%) 
+LDR lightdata         [variable]      252920/0        ( 0.0%) 
+HDR lightdata         [variable]           0/0        ( 0.0%) 
+visdata               [variable]          84/16777216 ( 0.0%) 
+entdata               [variable]        3663/393216   ( 0.9%) 
+LDR ambient table       61/65536         244/262144   ( 0.1%) 
+HDR ambient table       61/65536         244/262144   ( 0.1%) 
+LDR leaf ambient        20/65536         560/1835008  ( 0.0%) 
+HDR leaf ambient        61/65536        1708/1835008  ( 0.1%) 
+occluders                0/0               0/0        ( 0.0%) 
+occluder polygons        0/0               0/0        ( 0.0%) 
+occluder vert ind        0/0               0/0        ( 0.0%) 
+detail props          [variable]           1/12       ( 8.3%) 
+static props          [variable]           1/12       ( 8.3%) 
+pakfile               [variable]      105679/0        ( 0.0%) 
+physics               [variable]        8414/4194304  ( 0.2%) 
+physics terrain       [variable]           2/1048576  ( 0.0%) 
+
+Level flags = 0
+
+Total triangle count: 164
+Writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\gamemodes\pistolsatdawn\entities\maps\pd_dodgeball.bsp
+0 seconds elapsed

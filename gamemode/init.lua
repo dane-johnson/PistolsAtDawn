@@ -36,7 +36,11 @@ end
 function ClearSavior( ply )
   ply.savior = nil
   net.Start("PD_ClearSavior")
-  net.WriteString( ply:SteamID() )
+  if DEBUG then
+    net.WriteString( ply:Nick() )
+  else
+    net.WriteString( ply:SteamID() )
+  end
   net.Broadcast()
 end
 

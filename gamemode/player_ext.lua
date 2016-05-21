@@ -5,15 +5,24 @@ local meta = FindMetaTable ( "Player" )
 function meta:SetSavior( savior )
   self.savior = savior
   net.Start( "PD_UpdateSavior" )
-  net.WriteString( self:SteamID() )
-  net.WriteString( savior:SteamID() )
+  if DEBUG then
+    net.WriteString( self:Nick() )
+    net.WriteString( savior:Nick() )
+  else
+    net.WriteString( self:SteamID() )
+    net.WriteString( savior:SteamID() )
+  end
   net.Broadcast()
 end
 
 function meta:SetIsSavior( truth )
   self.isSavior = truth
   net.Start( "PD_SetIsSavior" )
-  net.WriteString( self:SteamID() )
+  if DEBUG then
+    net.WriteString( self:Nick() )
+  else
+    net.WriteString( self:SteamID() )
+  end
   net.WriteBool( truth )
   net.Broadcast()
 end

@@ -10,12 +10,13 @@
 @PointClass base(PlayerClass, Angles) studio("models/editor/playerstart.mdl") = info_prisoner_red : "spawn zone for red prisoners" []
 @PointClass base(PlayerClass, Angles) studio("models/editor/playerstart.mdl") = info_prisoner_blue : "spawn zone for blue prisoners" []
 
-//Team Zones
-@SolidClass = trigger_team : "the team zone"
+//Team zones
+@SolidClass base(Targetname, Parentname) = trigger_team
 [
-  team(choices) : "Team this zone belongs to." : "Red" : =
-  [
-    "red" : "Red"
-    "blue" : "Blue"
-  ]
+	team(choices) : "Team Selector" : "red" : "Used to specify which team this zone will represent." =
+	[
+		"red" : "Red"
+		"blue" : "Blue"
+	]
 ]
+

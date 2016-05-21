@@ -1,6 +1,9 @@
+ENT.Base = "base_brush"
 ENT.type = "brush"
 
 ENT.TeamNo = TEAM_RED
+
+ENT.Enabled = true
 
 function ENT:KeyValue( key, value )
   local key = string.lower(key)
@@ -14,18 +17,26 @@ function ENT:KeyValue( key, value )
   end
 end
 
+function ENT:AcceptInput(name, activator, caller, args)
+	local name = string.lower(name)
+	if string.sub(name, 1, 2) == "on" then
+		self:FireOutput(name, activator, caller, args)
+  end
+end
+
 function ENT:Touch( ply )
   if ply:IsPlayer() then
     --if they are on the our team team
-    if ply:Team() = self.TeamNo then
+    if ply:Team() == self.TeamNo then
       --if they are a posse member, give them a gun, they are no longer a savior
       if not ply:IsPrisoner() then
         ply:Give( 'weapon_pd_revolver' )
-        ply:SetSavior( false )
+        ply:SetIsSavior( false )
       else
       --if they are a returning prisoner, make them a posse member and respawn them
       player_manager.SetPlayerClass( ply, 'player_posse' )
       ply:Spawn()
+      end
     else
     --other team member
       --if they are a prisoner

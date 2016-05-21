@@ -6,6 +6,8 @@ GM.Version = '2016-05-16'
 
 local pairs = pairs
 
+DEBUG = false
+
 --load player classes
 include('player_class/player_posse.lua')
 include('player_class/player_prisoner.lua')
