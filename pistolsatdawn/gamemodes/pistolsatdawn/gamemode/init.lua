@@ -45,22 +45,24 @@ function ClearSavior( ply )
 end
 
 function CheckForRoundOver( num )
-  roundOver = true
-  for _, v  in pairs(team.GetPlayers( num )) do 
-    if player_manager.GetPlayerClass( v ) == 'player_posse' then
-      roundOver = false
+  if GAMEMODE.state == GAME_ACTIVE then
+    local roundOver = true
+    for _, v  in pairs(team.GetPlayers( num )) do 
+      if player_manager.GetPlayerClass( v ) == 'player_posse' then
+        roundOver = false
+      end
     end
-  end
-  if roundOver then
-    timer.Simple( 5, StartRound )
-    print( 'Round is over' )
+    if roundOver then
+      timer.Simple( 5, StartRound )
+      GAMEMODE.state = GAME_RESTARTING
+      MsgN( 'Round is over' )
+    end
   end
 end
 
 function GM:PlayerSetModel(ply)
   ply:SetModel(GetRandomPlayerModel(ply))
 end
-
 --Entities not to clean up
 NOCLEAN = {
   'info_player_red',
@@ -78,6 +80,7 @@ function StartRound()
     v:Spawn()
   end
   game.CleanUpMap(false, NOCLEAN)
+  GAMEMODE.state = GAME_ACTIVE
 end
 
 function AreInSavingRange(p1, p2)
@@ -85,4 +88,5 @@ function AreInSavingRange(p1, p2)
 end
 
 timer.Create( 'SaviorSet', 1, 0, function() hook.Call('SetSaviors', GAMEMODE) end)
+StartRound()
 

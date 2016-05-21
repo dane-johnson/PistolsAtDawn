@@ -8,6 +8,10 @@ local pairs = pairs
 
 DEBUG = false
 
+--Gamestate conts
+GAME_ACTIVE = 1
+GAME_RESTARTING = 2
+
 --load player classes
 include('player_class/player_posse.lua')
 include('player_class/player_prisoner.lua')
@@ -39,7 +43,7 @@ DRAW_IS_SAVIOR = 8
 DRAW_IS_BEING_SAVED = 16
 DRAW_SAVIOR = 32
 
-HUDMask = bit.bor(DRAW_NAME, DRAW_CLASS, DRAW_IS_PRISONER, DRAW_IS_SAVIOR, DRAW_IS_BEING_SAVED, DRAW_SAVIOR)
+HUDMask = bit.bor(0, DRAW_NAME)
 
 function GM:CreateTeams()
   team.SetUp(TEAM_RED, "Red", COLOR_RED)
