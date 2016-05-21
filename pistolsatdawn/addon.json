@@ -1,0 +1,13 @@
+{
+  "title" : "Pistols at Dawn",
+  "type"  : "gamemode",
+  "tags"  : [ "fun", "movie" ],
+  "ignore": 
+  [
+    "*.ase",
+    "*.log",
+    "*.prt",
+    "*.vmf",
+    "*.vmx"
+  ]
+}
