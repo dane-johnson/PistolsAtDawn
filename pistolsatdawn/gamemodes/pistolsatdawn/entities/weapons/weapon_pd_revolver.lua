@@ -1,4 +1,5 @@
 SWEP.Base = 'weapon_pd_base'
+SWEP.PrintName = "Revolver"
 SWEP.Slot = 0
 SWEP.SlotPos = 1
 SWEP.DrawAmmo = true
