@@ -1,15 +1,19 @@
 --For help spawning a player
 
-SPAWN_POSSE_RED = ents.FindByClass( 'info_player_red' )
-SPAWN_POSSE_BLUE = ents.FindByClass( 'info_player_blue' )
-SPAWN_PRISONER_RED = ents.FindByClass ( 'info_prisoner_red' )
-SPAWN_PRISONER_BLUE = ents.FindByClass( 'info_prisoner_blue' )
+function ReGenSpawns()
+  SPAWN_POSSE_RED = ents.FindByClass( 'info_player_red' )
+  SPAWN_POSSE_BLUE = ents.FindByClass( 'info_player_blue' )
+  SPAWN_PRISONER_RED = ents.FindByClass ( 'info_prisoner_red' )
+  SPAWN_PRISONER_BLUE = ents.FindByClass( 'info_prisoner_blue' )
+end
+ReGenSpawns()
 
 function PrintSpawns()
   PrintTable(SPAWN_POSSE_RED)
   PrintTable(SPAWN_POSSE_BLUE)
   PrintTable(SPAWN_PRISONER_RED)
   PrintTable(SPAWN_PRISONER_BLUE)
+  print 'done listing spawns'
 end
 
 concommand.Add( 'spawns' , PrintSpawns)
@@ -20,6 +24,7 @@ local red_prisoner_lru = 1
 local blue_prisoner_lru = 1
 
 function GM:PlayerSelectSpawn( ply )
+  ReGenSpawns()
   local team = ply:Team()
   if team == TEAM_RED then
     if not ply:IsPrisoner() then

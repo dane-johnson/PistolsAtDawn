@@ -84,13 +84,15 @@ function StartRound()
     v:Spawn()
   end
   game.CleanUpMap(false, NOCLEAN)
-  GM.state = GAME_ACTIVE
+  GAMEMODE.state = GAME_ACTIVE
 end
 
 function AreInSavingRange(p1, p2)
   return p1:GetPos():Distance(p2:GetPos()) <= SAVING_RANGE
 end
 
-timer.Create( 'SaviorSet', 1, 0, function() hook.Call('SetSaviors', GAMEMODE) end)
-StartRound()
+function GM:Initialize()
+  timer.Create( 'SaviorSet', 1, 0, function() hook.Call('SetSaviors', GAMEMODE) end)
+  StartRound()
+end
 
