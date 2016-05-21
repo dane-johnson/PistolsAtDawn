@@ -33,6 +33,10 @@ function GM:PostPlayerDeath( ply )
   CheckForRoundOver( ply:Team() )
 end
 
+function GM:PlayerDisconnected( ply )
+  CheckForRoundOver ( ply:Team() )
+end
+
 function ClearSavior( ply )
   ply.savior = nil
   net.Start("PD_ClearSavior")
