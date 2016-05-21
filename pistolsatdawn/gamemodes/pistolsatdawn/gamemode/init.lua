@@ -84,7 +84,7 @@ function StartRound()
     v:Spawn()
   end
   game.CleanUpMap(false, NOCLEAN)
-  GAMEMODE.state = GAME_ACTIVE
+  GM.state = GAME_ACTIVE
 end
 
 function AreInSavingRange(p1, p2)

@@ -5,6 +5,15 @@ SPAWN_POSSE_BLUE = ents.FindByClass( 'info_player_blue' )
 SPAWN_PRISONER_RED = ents.FindByClass ( 'info_prisoner_red' )
 SPAWN_PRISONER_BLUE = ents.FindByClass( 'info_prisoner_blue' )
 
+function PrintSpawns()
+  PrintTable(SPAWN_POSSE_RED)
+  PrintTable(SPAWN_POSSE_BLUE)
+  PrintTable(SPAWN_PRISONER_RED)
+  PrintTable(SPAWN_PRISONER_BLUE)
+end
+
+concommand.Add( 'spawns' , PrintSpawns)
+
 local red_player_lru = 1
 local blue_player_lru = 1
 local red_prisoner_lru = 1
