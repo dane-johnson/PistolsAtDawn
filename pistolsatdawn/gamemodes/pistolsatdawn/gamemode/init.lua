@@ -21,6 +21,7 @@ util.AddNetworkString('PD_SetIsSavior')
 
 function GM:PlayerInitialSpawn( ply )
   ply:MakeSpectator()
+  ply:ChatPrint( 'Welcome! Press F2 for Red and F3 for Blue!' )
 end
 
 function GM:PlayerButtonDown( ply, button )
