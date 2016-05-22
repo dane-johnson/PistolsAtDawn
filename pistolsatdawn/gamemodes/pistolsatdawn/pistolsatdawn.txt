@@ -2,7 +2,7 @@
 {
   "base"        "base"
   "title"       "Pistols at Dawn"
-  "maps"        "^pd_"
+  "maps"        "^pad_"
   "menusystem"  "1"
   "workshopid"  "688869967"
 }
