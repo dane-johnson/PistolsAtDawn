@@ -20,12 +20,15 @@ util.AddNetworkString('PD_ClearSavior')
 util.AddNetworkString('PD_SetIsSavior')
 
 function GM:PlayerInitialSpawn( ply )
-  local bestTeam = team.BestAutoJoinTeam()
-  if bestTeam <= 0 then bestTeam = 1 end
-  ply:SetTeam( bestTeam )
-  ply:ChatPrint( 'Hello ' .. ply:GetName() .. '. You are on team ' .. team.GetName( bestTeam ) )
-  player_manager.SetPlayerClass(ply, 'player_posse')
-  ply:Spawn()
+  ply:MakeSpectator()
+end
+
+function GM:PlayerButtonDown( ply, button )
+  if button == KEY_F2 then
+    ply:JoinTeam( TEAM_RED )
+  elseif button == KEY_F3 then
+    ply:JoinTeam( TEAM_BLUE )
+  end
 end
 
 function GM:PostPlayerDeath( ply )
@@ -92,6 +95,7 @@ function AreInSavingRange(p1, p2)
 end
 
 function GM:Initialize()
+  print('Pistols at Dawn initializing...')
   timer.Create( 'SaviorSet', 1, 0, function() hook.Call('SetSaviors', GAMEMODE) end)
   StartRound()
 end

@@ -26,3 +26,21 @@ function meta:SetIsSavior( truth )
   net.WriteBool( truth )
   net.Broadcast()
 end
+
+
+function meta:MakeSpectator()
+  player_manager.SetPlayerClass( self , 'player_specator' )
+  self:SetTeam( TEAM_SPEC )
+  self:Spectate( OBS_MODE_ROAMING )
+end
+
+function meta:JoinTeam( teamNo )
+  if self:Team() == TEAM_SPEC then
+    self:SetTeam( teamNo )
+    player_manager.SetPlayerClass ( self, 'player_posse' )
+    self:Spawn()
+  elseif teamNo ~= self:Team() then
+    self:SetTeam( teamNo )
+    self:Spawn()
+  end
+end

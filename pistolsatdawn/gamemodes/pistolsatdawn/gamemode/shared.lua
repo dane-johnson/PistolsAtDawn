@@ -15,6 +15,7 @@ GAME_RESTARTING = 2
 --load player classes
 include('player_class/player_posse.lua')
 include('player_class/player_prisoner.lua')
+include('player_class/player_spectator.lua')
 
 --Colors
 COLOR_WHITE  = Color(255, 255, 255, 255)
@@ -99,9 +100,4 @@ function GM:SetSaviors()
       else ClearSavior(prisoner) end
     end
   end
-end
-
-
-function GM:Initialize()
-  print('Pistols at Dawn initializing...')
 end
