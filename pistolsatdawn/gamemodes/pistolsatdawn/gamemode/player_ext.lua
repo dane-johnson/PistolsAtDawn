@@ -32,15 +32,18 @@ function meta:MakeSpectator()
   player_manager.SetPlayerClass( self , 'player_specator' )
   self:SetTeam( TEAM_SPEC )
   self:Spectate( OBS_MODE_ROAMING )
+  self:Spawn()
+  MsgN(self:Nick(), ' is now spectating.')
 end
 
 function meta:JoinTeam( teamNo )
   if self:Team() == TEAM_SPEC then
-    self:SetTeam( teamNo )
-    player_manager.SetPlayerClass ( self, 'player_posse' )
+    self:UnSpectate()
+    self:SetTeam ( teamNo )
+    player_manager.SetPlayerClass( self, 'player_prisoner')
     self:Spawn()
   elseif teamNo ~= self:Team() then
+    self:Kill()
     self:SetTeam( teamNo )
-    self:Spawn()
   end
 end

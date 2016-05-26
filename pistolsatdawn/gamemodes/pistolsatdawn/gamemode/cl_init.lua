@@ -2,6 +2,7 @@ include('shared.lua')
 include('cl_targetid.lua')
 include('player_ext_shd.lua')
 include('cl_savior.lua')
+include('vgui/team_selection.lua')
 
 function GM:PreDrawHalos()
   for _, p in pairs(player.GetAll()) do 
@@ -10,3 +11,8 @@ function GM:PreDrawHalos()
     end
   end
 end
+
+function ShowTeamSelectionMenu()
+  ShowTeamSelector()
+end
+net.Receive( 'PD_OpenTeamSelectionMenu', ShowTeamSelectionMenu)

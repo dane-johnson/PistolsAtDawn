@@ -8,6 +8,7 @@ AddCSLuaFile('shared.lua')
 AddCSLuaFile('cl_targetid.lua')
 AddCSLuaFile('player_ext_shd.lua')
 AddCSLuaFile('cl_savior.lua')
+AddCSLuaFile('vgui/team_selection.lua')
 
 include('shared.lua')
 include('player_ext.lua')
@@ -18,19 +19,36 @@ include('sv_spawn.lua')
 util.AddNetworkString('PD_UpdateSavior')
 util.AddNetworkString('PD_ClearSavior')
 util.AddNetworkString('PD_SetIsSavior')
+util.AddNetworkString('PD_OpenTeamSelectionMenu')
+util.AddNetworkString('PD_PlayerSelectedTeam')
 
 function GM:PlayerInitialSpawn( ply )
   ply:MakeSpectator()
-  ply:ChatPrint( 'Welcome! Press F2 for Red and F3 for Blue!' )
+  
+  timer.Simple(2, function()
+    net.Start( 'PD_OpenTeamSelectionMenu' )
+    net.Send( ply )
+  end)
 end
 
 function GM:PlayerButtonDown( ply, button )
-  if button == KEY_F2 then
-    ply:JoinTeam( TEAM_RED )
-  elseif button == KEY_F3 then
-    ply:JoinTeam( TEAM_BLUE )
+ if button == KEY_F2 then
+    net.Start( 'PD_OpenTeamSelectionMenu' )
+    net.Send( ply )
   end
 end
+
+function PlayerSelectionMenuCallback()
+  local ply = player.GetBySteamID( net.ReadString() )
+  local teamSelected = net.ReadFloat()
+  
+  if teamSelected == TEAM_SPEC then
+    ply:MakeSpectator()
+  else
+    ply:JoinTeam( teamSelected )
+  end
+end
+net.Receive( 'PD_PlayerSelectedTeam', PlayerSelectionMenuCallback)
 
 function GM:PostPlayerDeath( ply )
   player_manager.SetPlayerClass( ply, 'player_prisoner' )
@@ -83,9 +101,11 @@ function StartRound()
   local plys = player.GetAll()
   
   for _, v in pairs(plys) do 
-    player_manager.SetPlayerClass( v, 'player_posse' )
-    ClearSavior( v )
-    v:Spawn()
+    if v:Team() ~= TEAM_SPEC then
+      player_manager.SetPlayerClass( v, 'player_posse' )
+      ClearSavior( v )
+      v:Spawn()
+    end
   end
   game.CleanUpMap(false, NOCLEAN)
   GAMEMODE.state = GAME_ACTIVE
