@@ -5,7 +5,10 @@ DEFINE_BASECLASS('player_default')
 
 PLAYER = {}
 
---Possible to redefine abilities here, not neccesary
+--Possible to redefine abilities here
+
+--Disable sprint
+PLAYER.RunSpeed = 400
 
 function PLAYER:Loadout()
 
