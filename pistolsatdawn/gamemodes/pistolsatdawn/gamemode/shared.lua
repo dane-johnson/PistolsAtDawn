@@ -92,7 +92,7 @@ function GM:SetSaviors()
       if prisoner:IsPrisoner() then
         if not prisoner:IsBeingSaved() then
           for _, s in pairs( team.GetPlayers( t ) ) do
-            if (not (s == prisoner)) and AreInSavingRange(s, prisoner) then
+            if (not (s == prisoner)) and AreInSavingRange(s, prisoner) and s:IsSavior() then
               prisoner:SetSavior( s )
             end
           end
